@@ -5,10 +5,12 @@ import {
 import './App.css'
 import HomePage from './pages/HomePage'
 import ArticlesListPage from './pages/ArticlesListPage';
-import ArticlePage from './pages/ArticlePage';
+import ArticlePage, { loader as articleLoader } from './pages/ArticlePage';
 import AboutPage from './pages/AboutPage';
 import Layout from './Layout';
 import NotFoundPage from './pages/NotFoundPage';
+import CreateAccountPage from './pages/CreateAccountPage';
+import LoginPage from './pages/LoginPage';
 
 const routes = [{
   path: '/',
@@ -25,7 +27,14 @@ const routes = [{
       element: <ArticlesListPage />
     }, {
       path: '/articles/:name', // -> /articles/learn-react
-      element: <ArticlePage />
+      element: <ArticlePage />,
+      loader: articleLoader,
+    },{
+      path: '/login',
+      element: <LoginPage />
+    }, {
+      path: '/create-account', 
+      element: <CreateAccountPage />
     }]
 }]
 
@@ -39,4 +48,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
